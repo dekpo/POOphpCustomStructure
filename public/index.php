@@ -9,7 +9,7 @@ App\Autoloader::register();
 $p = isset($_GET['p']) ? $_GET['p'] : "home";
 
 // On détermine le parcours pour afficher la vue
-$view = is_file("../views/$p.php") ? "../views/$p.php" : "../views/404.php";
+$view = is_file("../views/pages/$p.php") ? "../views/pages/$p.php" : "../views/pages/404.php";
 
 // On fait une requète sur la DB en fonction de la route
 switch($p){

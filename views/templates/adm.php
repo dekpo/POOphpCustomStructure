@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-warning">
     <div class="container-fluid">
       <a class="navbar-brand" href="?p=home">
       <img src="./images/logo.png" alt="Logo Webforce" width="100">
@@ -34,7 +34,7 @@
               Dropdown
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="admin.php">Admin</a></li>
+              <li><a class="dropdown-item" href="#">Action</a></li>
               <li><a class="dropdown-item" href="#">Another action</a></li>
               <li>
                 <hr class="dropdown-divider">
@@ -58,7 +58,7 @@
     <?= $view_content ?>
     <!-- END VIEW CONTENT HERE !!! -->
   </div>
-  <footer class="bg-light text-center">
+  <footer class="bg-warning text-center">
     <h3>Footer</h3>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
