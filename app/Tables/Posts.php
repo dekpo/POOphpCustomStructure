@@ -3,7 +3,12 @@
 namespace App\Tables;
 
 class Posts{
-    
+
+    public static function getAll($db){
+        return $db->query("SELECT * FROM posts ORDER BY id",__CLASS__);
+    }
+
+
     public function __get($key)
     {
         $method = 'get'.ucfirst($key);

@@ -17,7 +17,7 @@ $db = \App\Config::getDb();
 // On fait une requète sur la DB en fonction de la route
 switch($p){
     case "home":
-        $posts = $db->query("SELECT * FROM posts ORDER BY id","App\Tables\Posts");
+        $posts = \App\Tables\Posts::getAll($db);
     break;
     case "single":
         $id = isset($_GET['id']) && ((int)$_GET['id']*1)>0 ? $_GET['id'] : 1;
