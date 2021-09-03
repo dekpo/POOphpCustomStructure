@@ -5,7 +5,12 @@ namespace App\Tables;
 class Posts{
 
     public static function getAll($db){
-        return $db->query("SELECT * FROM posts ORDER BY id",__CLASS__);
+        return $db->query("
+        SELECT posts.*,categories.name as category
+         FROM posts 
+         LEFT JOIN categories
+         ON posts.category_id = categories.id
+         ORDER BY id",__CLASS__);
     }
 
 

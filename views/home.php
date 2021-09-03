@@ -7,7 +7,7 @@
         <div class="card">
     <img src="<?="./images/".$post->img?>" class="card-img-top" alt="<?= $post->title ?>">
             <div class="card-body">
-                <h5 class="card-title"><?= $post->title ?></h5>
+                <h5 class="card-title"><?= $post->title ?> - <?=$post->category?></h5>
                 <p class="card-text"><?= $post->text ?></p>
                 <p><small><?= $post->date ?></small></p>
                 <a href="<?= $post->url ?>" class="btn btn-dark">Read more...</a>
