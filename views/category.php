@@ -1,7 +1,9 @@
 <div class="row">
-<div class="col-12">
-    <h1>Home (<?=$count[0]->count?>)</h1>
+<div class="col-4"><a href="?p=categories" class="btn btn-dark w-100">Back</a></div>
+<div class="col-8"><h1><?=$category[0]->name?></h1></div>
+    <div class="col-12"><p><?=$category[0]->description?></p></div>  
 </div>
+<div class="row">
 <?php foreach ($posts as $post) : ?>
     <div class="col-12 col-sm-6 col-md-4 my-2">
         <div class="card">

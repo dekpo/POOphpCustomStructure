@@ -2,23 +2,27 @@
 
 namespace App\Tables;
 
-class Posts{
+use \App\Config;
 
-    public static function getAll($db){
-        return $db->query("
+class Posts extends Table{
+
+    public static function getAll(){
+        return Config::getDb()->query("
         SELECT posts.*,categories.name as category
          FROM posts 
          LEFT JOIN categories
          ON posts.category_id = categories.id
-         ORDER BY id",__CLASS__);
+         ORDER BY id DESC",__CLASS__);
     }
 
-
-    public function __get($key)
-    {
-        $method = 'get'.ucfirst($key);
-        $this->$key = $this->$method();
-        return $this->$key;
+    public static function getPostsByCat($cat_id){
+        return Config::getDb()->query("
+        SELECT posts.*,categories.name as category
+         FROM posts 
+         LEFT JOIN categories
+         ON posts.category_id = categories.id 
+         WHERE posts.category_id = ?
+         ORDER BY id DESC",__CLASS__,[$cat_id]);
     }
 
     public function getExcerpt(){
