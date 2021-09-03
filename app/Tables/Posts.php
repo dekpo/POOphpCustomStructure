@@ -21,6 +21,10 @@ class Posts{
         return $this->$key;
     }
 
+    public function getExcerpt(){
+        return substr($this->text,0,120) . " <a href='".$this->url."'>[...]</a>";
+    }
+
     public function getId(){
         return $this->id;
     }
