@@ -37,9 +37,9 @@ class Form{
      * @param string $type Permet de préciser le type du champs input
      * @return string Retourne un champs input formaté
      */
-    public function input($name,$type="text"){
-
-        return $this->surround('<input type="'.$type.'" name="'.$name.'" value="'.$this->getValue($name).'">');
+    public function input($name,$type="text",$required=false){
+        $validation = $required ? "required" : null;
+        return $this->surround('<input type="'.$type.'" name="'.$name.'" value="'.$this->getValue($name).'"' .$validation.'>');
     }
 
     public function submit(){

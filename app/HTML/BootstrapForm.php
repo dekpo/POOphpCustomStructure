@@ -7,16 +7,16 @@ class BootstrapForm extends \App\HTML\Form{
         return '<div class="col-12">'.$html.'</div>';
     }
 
-    public function input($name,$type="text"){
-
+    public function input($name,$type="text",$required=false){
+        $validation = $required ? "required" : null;
         return $this->surround('
         <label for="'.$name.'">'.ucwords($name).'</label>
-        <input type="'.$type.'" id="'.$name.'" name="'.$name.'" class="form-control" value="'.$this->getValue($name).'">'
+        <input type="'.$type.'" id="'.$name.'" name="'.$name.'" class="form-control" value="'.$this->getValue($name).'"' .$validation.'>'
     );
     }
 
     public function submit(){
-        return $this->surround('<button class="btn btn-primary" type="submit">Envoyer</button>');
+        return $this->surround('<button class="btn btn-primary mt-2" type="submit">Envoyer</button>');
     }
     
 }

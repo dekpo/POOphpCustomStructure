@@ -6,21 +6,16 @@ App\Autoloader::register();
 // on récup la var p pour déterminer  
 // la page à afficher
 $p = isset($_GET['p']) ? $_GET['p'] : "home";
-
+session_start();
 //Authentification
 if ($p==="logout"){
     session_unset();
     session_destroy();
-    header("Location:./");      
-} else {
-    session_start();
+    //header("Location:./");      
 }
 $auth = new \App\Auth\DbAuth();
 if (!$auth->logged()) {
     $p = "login";
-    $form = new \App\HTML\BootstrapForm($_POST);
-} else {
-    $p = "home";
 }
 
 
