@@ -7,19 +7,39 @@ App\Autoloader::register();
 // la page à afficher
 $p = isset($_GET['p']) ? $_GET['p'] : "home";
 
+//Authentification
+if ($p==="logout"){
+    session_unset();
+    session_destroy();
+    header("Location:./");      
+} else {
+    session_start();
+}
+$auth = new \App\Auth\DbAuth();
+if (!$auth->logged()) {
+    $p = "login";
+    $form = new \App\HTML\BootstrapForm($_POST);
+} else {
+    $p = "home";
+}
+
+
 // On détermine le parcours pour afficher la vue
 $view = is_file("../views/admin/$p.php") ? "../views/admin/$p.php" : "../views/pages/404.php";
 
 // On fait une requète sur la DB en fonction de la route
-switch($p){
+switch ($p) {
+    case "login":
+        
+        break;
     case "home":
-    break;
+        break;
     case "single":
-    break;
+        break;
     case "categories":
-    break;
+        break;
     case "category":
-    break;
+        break;
 }
 
 // On charge la vue dans la mémoire tampon
