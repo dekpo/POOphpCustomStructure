@@ -6,11 +6,12 @@ App\Autoloader::register();
 // on récup la var p pour déterminer  
 // la page à afficher
 $p = isset($_GET['p']) ? $_GET['p'] : "home";
+
 session_start();
 //Authentification
 if ($p==="logout"){
     session_unset();
-    session_destroy();
+    //session_destroy(); // => redondant par rapport à session_unset()
     //header("Location:./");      
 }
 $auth = new \App\Auth\DbAuth();
